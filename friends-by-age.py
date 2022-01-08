@@ -21,7 +21,7 @@ def parseLine(line):
 # reduceByKey(lambda x, y: (x[0] + y[0], x[1] + y[1])) => (33, (387,2))   <== First Action Waits Lazy until here
 # averagesByAge = totalsByAge.mapValues(lambda x: x[0] / x[1]) (33, 193.5)
 
-lines = sc.textFile("file:///home/vagrant/PycharmProjects/SparkCourse/spark/ml-100k/fakefriends.csv")
+lines = sc.textFile("file:///home/vagrant/PycharmProjects/pySpark/ml-100k/fakefriends.csv")
 rdd = lines.map(parseLine)
 totalsByAge = rdd.mapValues(lambda x: (x, 1)).reduceByKey(lambda x, y: (x[0] + y[0], x[1] + y[1]))
 averagesByAge = totalsByAge.mapValues(lambda x: x[0] / x[1])
