@@ -7,7 +7,7 @@ def normalizeWords(text):
 conf = SparkConf().setMaster("local").setAppName("WordCount")
 sc = SparkContext(conf = conf)
 
-input = sc.textFile("file:///home/vagrant/PycharmProjects/SparkCourse/spark/ml-100k/Book.txt")
+input = sc.textFile("file:///home/vagrant/PycharmProjects/pySpark/ml-100k/Book.txt")
 words = input.flatMap(normalizeWords)
 words.foreach(lambda x: print(print("x={}",x)))
 

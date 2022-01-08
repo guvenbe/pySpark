@@ -23,7 +23,7 @@ def parseLine(line):
 # minTemps = parsedLines.filter(lambda x: "TMIN" in x[1])  Get the TMIN in Filed 1
 # stationTemps = minTemps.map(lambda x: (x[0], x[2])) (StationId, minTemp) get rid of entryType
 # minTemps = stationTemps.reduceByKey(lambda x, y: min(x,y)) Find min temp for stationId for entire year
-lines = sc.textFile("file:///home/vagrant/PycharmProjects/SparkCourse/spark/ml-100k/1800.csv")
+lines = sc.textFile("file:///home/vagrant/PycharmProjects/pySpark/ml-100k/1800.csv")
 parsedLines = lines.map(parseLine)
 minTemps = parsedLines.filter(lambda x: "TMIN" in x[1])
 stationTemps = minTemps.map(lambda x: (x[0], x[2]))

@@ -11,7 +11,7 @@ def parseLine(line):
     temperature = float(fields[3]) * 0.1 * (9.0 / 5.0) + 32.0
     return (stationID, entryType, temperature)
 
-lines = sc.textFile("file:///home/vagrant/PycharmProjects/SparkCourse/spark/ml-100k/1800.csv")
+lines = sc.textFile("file:///home/vagrant/PycharmProjects/pySpark/ml-100k/1800.csv")
 parsedLines = lines.map(parseLine)
 
 minTemps = parsedLines.filter(lambda x: "TMAX" in x[1])

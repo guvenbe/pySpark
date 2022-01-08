@@ -11,9 +11,10 @@ def parseline(line):
 conf = SparkConf().setMaster("local").setAppName("totalSpentByCustomer")
 sc = SparkContext(conf=conf)
 
-lines = sc.textFile("file:///home/vagrant/PycharmProjects/SparkCourse/spark/ml-100k/customer-orders.csv")
+lines = sc.textFile("file:///home/vagrant/PycharmProjects/pySpark/ml-100k/customer-orders.csv")
 rdd = lines.map(parseline)
 totalsByCustomer =rdd.reduceByKey(lambda x, y: x+ y)
+rdd.map(lambda x: (x[1], x[0])).sortByKey
 results = totalsByCustomer.collect()
 
 for result in results:
